@@ -1,36 +1,39 @@
 ## Put comments here that give an overall description of what your
 ## functions do
-
 ## Write a short comment describing this function
-## The function represents some implementation of object with data 
-## and primitive setters and getters functions.
+
+## The function makeCacheMatrix() encapsulates a matrix, a inverse matrix 
+## and primitive set and get functions. 
+## The internal list stores functions.
 
 ## Of course in the real life we should check integrity of data. So it means that 
 ## the set() function for inverted matrix should calculate inverted matrix based upon
 ## x value
 makeCacheMatrix <- function(x = matrix()) {
-  # default value for inverted matrix is NULL
+  # 0. when object default value for inverted matrix is NULL 
   invMatrix <- NULL
-  # function set() is setting a new matrix to a variable and cleaning old value of inverted matrix  
+  # 1. function set() is setting a new matrix to a variable and cleaning old value of inverse matrix  
   set <- function(y) {
     x <<- y
     invMatrix <<- NULL
   }
-  # function get() returns the original matrix
+  # 2. function get() returns the original matrix
   get <- function() x
-  # function setInvMatrix() sets a new inverted matrix
+  # 3. function setInvMatrix() sets a new inverse matrix
   setInvMatrix <- function(inverted) invMatrix <<- inverted
-  # function getInvMatrix() returns inverted matrix
+  # 4. function getInvMatrix() returns inverted matrix
   getInvMatrix <- function() invMatrix
+  # 5. List of internal functions
   list(set = set, get = get, setInvMatrix = setInvMatrix, getInvMatrix = getInvMatrix)
 }
 
 
 ## Write a short comment describing this function
-## The function cacheSolve() incapsulates getting of inverted matrix for "object" x
-## It checks is the inverted matrix existing and returns that value or calculates and
+
+## The function cacheSolve() encapsulates getting of inverse matrix for "object" x
+## It checks is the inverse matrix existing and returns that value or calculates and
 ## returns a new value 
-## Recall that object x  contains an original matrix, inverted matrix and functions 
+## Recall that object x  contains an original matrix, inverse matrix and functions 
 ## for getting/setting these values  
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
